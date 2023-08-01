@@ -1,5 +1,5 @@
 ---
-title: Datadog API Catalog Collections
+title: Datadog API Catalog Setup
 kind: documentation
 is_beta: true
 further_reading:
@@ -7,6 +7,7 @@ further_reading:
   tag: "Documentation"
   text: "Datadog Service Catalog"
 ---
+
 ## Overview
 
 ## Further reading
