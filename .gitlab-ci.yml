@@ -133,6 +133,7 @@ build_preview:
   script:
     - dog --config "$HOME/.dogrc" event post "documentation build ${CI_COMMIT_REF_NAME} started" "${CI_PROJECT_URL}/pipelines/${CI_PIPELINE_ID}" --alert_type "info" --tags="${DEFAULT_TAGS}"
     - touch Makefile.config
+    - exit 1
     - make dependencies
     - make config
     - ./node_modules/.bin/jest --testPathPattern=assets/scripts/tests/
@@ -505,3 +506,38 @@ set_redirect_metadata_live:
   script:
     - in-isolation run_update_redirect_metadata
   interruptible: true
+
+####################################
+#                                  #
+#      Failure Notifications       #
+#                                  # 
+####################################
+failure_notification_preview:
+  <<: *base_template
+  stage: cleanup
+  environment: "preview"
+  variables:
+    URL: ${PREVIEW_DOMAIN}
+    LOCAL: "False"
+    GIT_STRATEGY: none
+    SLACK_MESSAGE: ":siren: A gitlab job for ${CI_COMMIT_REF_NAME} has failed, please check your pipeline"
+  script:
+    - notify_slack.py "${SLACK_MESSAGE}" --status="#ab0000" --previewSite="false" --link="${CI_PIPELINE_URL}" --buttonContent="Gitlab Pipeline :looking:"
+  rules:
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH && $CI_COMMIT_BRANCH =~ $PREVIEW_PATTERN
+      when: on_failure
+
+failure_notification_live:
+  <<: *base_template
+  stage: cleanup
+  environment: "live"
+  variables:
+    URL: ${LIVE_DOMAIN}
+    LOCAL: "False"
+    GIT_STRATEGY: none
+    SLACK_MESSAGE: ":siren: A gitlab job for ${CI_COMMIT_REF_NAME} has failed, please check your pipeline"
+  script:
+    - notify_slack.py "${SLACK_MESSAGE}" --status="#ab0000" --previewSite="false" --link="${CI_PIPELINE_URL}" --buttonContent="Gitlab Pipeline :looking:"
+  rules:
+    - if: $CI_COMMIT_REF_NAME == "master"
+      when: on_failure
