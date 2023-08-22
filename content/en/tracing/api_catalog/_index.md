@@ -12,7 +12,7 @@ further_reading:
 API Catalog is in limited availability. Use this form to get early access. 
 {{< /callout >}} 
 
-{{< img src="tracing/api_catalog/api-catalog-overview.png" alt="API Catalog showing a list of API endpoints along with their Error Rate, P99 Latency, Requests Count, and Owning Team, with searching, filtering, and scoping features." style="width:100%;" >}}
+{{< img src="tracing/api_catalog/api-catalog-overview-2.png" alt="API Catalog showing a list of API endpoints along with their Error Rate, P99 Latency, Requests Count, and Owning Team, with searching, filtering, and scoping features." style="width:100%;" >}}
 
 ## Overview
 
@@ -37,7 +37,7 @@ API Catalog combines data from across Datadog to provide opinionated workflows s
 
 ## Exploring your endpoints
 
-The [API Catalog][1] view shows all endpoints in all environments in your Datadog organization. The performance data shown for each endpoint is scoped to the environment and time frame you select. You can browse and ask questions by querying different properties and metrics to get more precise results, using facets and tags for quick filtering.
+The [API Catalog][1] Explorer page shows all endpoints in all environments in your Datadog organization. The performance data shown for each endpoint is scoped to the environment and time frame you select. You can browse and ask questions by querying different properties and metrics to get more precise results, using facets and tags for quick filtering.
 
 In the list table, **sort** by any of the columns by clicking a header. For example, click **P99** to see endpoints with the highest 99th percentile for latency.
 
