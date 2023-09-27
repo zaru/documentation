@@ -10,47 +10,23 @@ console.log('running');
 console.log('documentation directory', DOCUMENTATION_DIRECTORY);
 console.log('images directory', IMAGES_DIRECTORY_PATH);
 
-/*
-function grepWithShell(file, done) {
-  const spawn = require("child_process").spawn;
-  let res = "";
-
-  const child = spawn("grep", ["-e", process.argv[2], file]);
-  child.stdout.on("data", function (buffer) {
-    res += buffer.toString();
-  });
-  child.stdout.on("end", function () {
-    done(null, res);
-  });
-}*/
-
-function countImageReferences(directory, relativeImagePath, done) {
-    const spawn = require('child_process').spawn;
-    let res = null;
-
-    const child = spawn('sh', ['-c', `ag "${relativeImagePath}" ${directory} --count | wc -l`]);
-    child.stdout.on('data', function (buffer) {
-        console.log('buffer is', buffer);
-        if (buffer !== null) {
-            res += buffer.toString();
+async function newCountImageReferences(directory, relativeImagePaths) {
+    const resultsByImagePath = {};
+    for (let i = 0; i < relativeImagePaths.length; i++) {
+        const imagePath = relativeImagePaths[i];
+        let result;
+        let error = null;
+        try {
+            const { stdout, stderr } = await exec(`ag "${imagePath}" ${directory} --count | wc -l`);
+            result = stdout;
+            error = stderr;
+        } catch (err) {
+            console.error(err);
+            error = err;
         }
-    });
-    child.stdout.on('end', function () {
-        done(null, res);
-    });
-}
-
-async function newCountImageReferences(directory, relativeImagePath, done) {
-    let result;
-    let error = null;
-    try {
-        const { stdout, stderr } = await exec(`ag "${relativeImagePath}" ${directory} --count | wc -l`);
-        result = stdout;
-    } catch (err) {
-        console.error(err);
-        error = err;
+        resultsByImagePath[imagePath] = { error, result };
     }
-    done(error, result);
+    return resultsByImagePath;
 }
 
 function buildFileList(directory) {
@@ -73,28 +49,21 @@ const relativeImageUrlRegex = /.*\/static\/images\/(.*)/;
 const allImageFiles = buildFileList(IMAGES_DIRECTORY_PATH);
 console.log('image files found: ', allImageFiles.length);
 
-let checks = 0;
-
 const promises = [];
 const filesToDelete = [];
 
-allImageFiles.forEach((absPath) => {
-    checks++;
-    if (checks > 100) return;
+const relativeImagePaths = allImageFiles.map((absPath) => {
     const match = absPath.match(relativeImageUrlRegex);
     const relativePath = match[1];
-    console.log('checking', relativePath);
-    promises.push(
-        newCountImageReferences(DOCUMENTATION_DIRECTORY, relativePath, (err, result) => {
-            console.log('Result for image path', relativePath);
-            console.log(result);
-            if (parseInt(result) === 0) {
-                filesToDelete.push(absPath);
-            }
-        })
-    );
+    return relativePath;
 });
 
-Promise.all(promises).then(() => {
-    console.log('unused image count:', filesToDelete.length);
+newCountImageReferences(DOCUMENTATION_DIRECTORY, relativeImagePaths).then((resultsByImagePath) => {
+    const filesToDelete = [];
+    Object.keys(resultsByImagePath).forEach((imagePath) => {
+        if (parseInt(resultsByImagePath[imagePath].result) === 0) {
+            filesToDelete.push(imagePath);
+        }
+    });
+    console.log('Number of unused images found: ', filesToDelete.length);
 });
