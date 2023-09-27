@@ -75,6 +75,10 @@ content/en/security/threats/agent_expressions.md
 content/en/security/threats/backend.md
 content/en/security_platform/
 
+# static analysis 
+content/en/continuous_integration/static_analysis/rules/*.md
+!content/en/continuous_integration/static_analysis/rules/_index.md
+
 # cspm cloud resource schemas
 content/en/security/cspm/custom_rules/*.md
 content/en/security/misconfigurations/custom_rules/*.md
