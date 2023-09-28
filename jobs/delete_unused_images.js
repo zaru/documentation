@@ -5,15 +5,37 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
+const os = require('os');
 
+const cpuCount = os.cpus().length;
 console.log('running');
 console.log('documentation directory', DOCUMENTATION_DIRECTORY);
 console.log('images directory', IMAGES_DIRECTORY_PATH);
 
 async function newCountImageReferences(directory, relativeImagePaths) {
     const resultsByImagePath = {};
+    const promises = [];
+    let promiseLimit = cpuCount;
     for (let i = 0; i < relativeImagePaths.length; i++) {
+        if (promises.length > promiseLimit) {
+            await Promise.all(promises);
+            promiseLimit += cpuCount;
+        }
         const imagePath = relativeImagePaths[i];
+        promises.push(
+            exec(`ag "${imagePath}" ${directory} --count | wc -l`)
+                .then(({ stdout, stderr }) => {
+                    resultsByImagePath[imagePath] = { error: stderr, result: stdout };
+                    if (i % 25 === 0) {
+                        console.log(`${i} of ${relativeImagePaths.length} checked`);
+                    }
+                })
+                .catch((e) => {
+                    console.error(e);
+                })
+        );
+
+        /*
         let result;
         let error = null;
         try {
@@ -25,6 +47,10 @@ async function newCountImageReferences(directory, relativeImagePaths) {
             error = err;
         }
         resultsByImagePath[imagePath] = { error, result };
+        if (i % 25 === 0) {
+            console.log(`${i} of ${relativeImagePaths.length} checked`);
+        }
+        */
     }
     return resultsByImagePath;
 }
