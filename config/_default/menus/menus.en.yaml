@@ -818,6 +818,17 @@ main:
     identifier: coscreen_troubleshooting
     parent: coscreen
     weight: 1
+  - name: Cloudcraft
+    url: cloudcraft/
+    pre: cloudcraft
+    identifier: cloudcraft
+    parent: essentials_heading
+    weight: 260000
+  - name: Api
+    url: cloudcraft/api
+    identifier: cloudcraft_api
+    parent: cloudcraft
+    weight: 1
   - name: Watchdog
     url: watchdog/
     identifier: watchdog_top_level
