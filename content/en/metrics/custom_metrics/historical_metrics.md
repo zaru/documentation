@@ -1,11 +1,6 @@
 ---
 title: Historical Metrics Ingestion
 kind: documentation
-aliases:
-  - /guides/metrics/historical_metrics_ingestion
-  - /developers/metrics/custom_metrics/historical_metrics_ingestion
-  - /getting_started/custom_metrics/historical_metrics_ingestion
-  - /developers/metrics/late_metrics
 further_reading:
 - link: "/developers/dogstatsd/"
   tag: "Documentation"
@@ -21,38 +16,50 @@ Historical Metrics Ingestion is in beta. Use this form to request access.
 
 ## Overview
 
-**What is Historical Metric Ingestion?** If you emit metric points with timestamps that are older than an hour relative to the time of submission, Datadog will classify these points as Historical Metrics. 
-
 {{< img src="metrics/custom_metrics/historical_metrics/hmi_intro.png" alt="Diagram showing the ingestion flow for Historical Metrics" >}}
 
-For example, if you emit a metric point at 1:00 PM EST, and the timestamp on that point reads 10:00 AM EST, it will be classified as a *Historical Metric*, as it is delayed by 3 hours relative to the time of submission.
+Historical metric ingestion allows you to collect metric points with outdated timestamps. Timestamps that are older than one hour from the time of submission, but no older than your total metric retention period (which defaults to 15 months for all metrics).
 
-**Why is this important for the average Datadog Metrics user?** With the introduction of Historical Metric Ingestion, you can now monitor a variety of new use cases with your metrics, such as outage recovery, overwriting invalid metrics, and Mmnaging IoT delays.
+With the introduction of Historical Metric Ingestion, you can monitor a variety of new use cases with your metrics, such as outage recovery, overwriting invalid metrics, and managing IoT delays.
 
-Historical metric ingestion allows you to collect metric points with outdated timestamps, that are older than one hour from the time of submission, but no older than your total metric retention period (which defaults to 15 months for all metrics). 
+## What is historical metric ingestion?
 
-It's important to note that resending metric points with the same timestamp and tag-value combination within Datadog will be replaced with a *"last point wins"* ingestion rule.
+Datadog classifies Historical Metrics as metric points with timestamps that are older than an hour relative to the time of submission. 
 
-You can start ingesting historical metrics by configuring Historical Metrics Ingestion via the [Metrics Summary Page][1] for *counts, rates, and gauges*.
+For example, you emit a metric point at 1:00 PM EST, and the timestamp on that point reads 10:00 AM EST. This metric point is classified as a *Historical Metric* because it is delayed by 3 hours relative to the time of submission.
 
-## Configuring Historical Metrics Ingestion
+**Note**: Metric points that are resent with the same timestamp and tag-value combination within Datadog are replaced with a *"last point wins"* ingestion rule.
 
-To enable the ingestion of historical metrics for a specific metric within the [Metrics Summary Page][1], click on the name of the metric you want to enable historical metrics for. The side panel will appear, under the *Advanced section* you will find an option for "Historical Data". Click on "Edit" and select "Enable Historical Data" and press "Save" to enable the ingestion of historical metrics for that specific metric.
+You can start ingesting historical metrics by configuring Historical Metrics Ingestion on the [Metrics Summary Page][1] for *counts, rates, and gauges*.
 
-{{< img src="metrics/hmi-assets/ldi_enablement.mp4" alt="Historical Metrics Configuration" video=true >}}
+## Configuration
 
-### Bulk Configuring Historical Metrics
+To enable the ingestion of historical metrics for a specific metric:
+1. Navigate to the [Metrics Summary Page][1] 
+1. Click the name of the metric you want to enable historical metrics for. 
+1. A side panel will appear, under the *Advanced section* find the option for *Historical Data*. 
+1. Click **Edit**
+1. Select **Enable Historical Data** and press **Save**
 
-To optimize your historical metrics enablement, take advantage of our Bulk Historical Metric Enablement feature. By clicking on **Enable Historical Data** on the Metrics Summary page, you can specify a namespace for your metrics. Then, you can configure all metrics that match that namespace to enable historical metrics ingestion. This allows you to quickly and easily enable historical metrics ingestion for multiple metrics at once, rather than having to configure each one individually.
+{{< img src="metrics/custom_metrics/historical_metrics/ldi_enablement.mp4" alt="Walkthrough of how to enable Historical Metrics" video=true >}}
 
-{{< img src="metrics/hmi-assets/bulk_ldi_enablement.mp4" alt="Bulk Historical Metrics Configuration" video=true >}}
+### Bulk configuration
 
+To optimize your historical metrics enablement, take advantage of the Bulk Historical Metric Enablement feature. You can enable historical metrics ingestion for multiple metrics at once, rather than having to configure each one individually.
 
-## Historical Metrics Submission
+1. Navigate to the Navigate to the [Metrics Summary Page][1] and specify a namespace for your metrics.
+1. Click on **Enable Historical Data**.
+1. Configure all metrics that match that namespace to enable historical metrics ingestion.
 
-Historical metrics can be submitted to Datadog via our API or the Agent. 
+{{< img src="metrics/custom_metrics/historical_metrics/bulk_ldi_enablement.mp4" alt="Walkthrough of bulk enabling historic metric ingestion" video=true >}}
 
-**If you plan to submit Historical Metrics through the API**, you can include metric points with old timestamps in the payload, as long as the metric name for the point has been configured to accept Historical Metrics via the user interface.
+## Historical metrics submission
+
+You can submit historical metrics through the [API](#api) or through the [Agent](#agent). 
+
+### API 
+
+With the API, you can include metric points with old timestamps in the payload, as long as the metric name for the point has been configured to accept Historical Metrics through the user interface.
 
 {{< programming-lang-wrapper langs="python,java,go,ruby,typescript,curl" collapsible="true">}}
 
@@ -342,8 +349,9 @@ EOF
 
 {{< /programming-lang-wrapper >}}
 
-**To submit Historical Metrics with the Agent**, make sure you have Agent version 7.40.0 or later installed. This version includes an updated DogStatsD interface, which supports **Java**, **GoLang**, and **.NET**. This allows you to send delayed metric points through the Agent.
+### Agent
 
+To submit Historical Metrics with the Agent, make sure you have Agent version 7.40.0 or later installed. This version includes an updated DogStatsD interface, which supports **Java**, **GoLang**, and **.NET**. This allows you to send delayed metric points through the Agent.
 
 {{< programming-lang-wrapper langs="java,go,.NET" >}}
 
@@ -422,9 +430,9 @@ public class DogStatsdClient
 
 {{< /programming-lang-wrapper >}}
 
-## Historical Metrics Ingestion: Latency
+## Ingestion latency
 
-Ingesting Historical Metrics will include some ingestion latencies, which depends on the delay associated with the metric timestamp.
+Ingesting Historical Metrics will include some ingestion latencies. These latencies can be caused by the delay associated with the metric timestamp.
 
 | Metric Delayed by:   | Ingestion Latency                     |
 |----------------------|---------------------------------------|
@@ -432,17 +440,15 @@ Ingesting Historical Metrics will include some ingestion latencies, which depend
 | 12 hours - 30 days   | Up to 14 hour latency                 |
 | +30 days             | +14 hours latency                     |
 
-{{< img src="metrics/hmi-assets/hmi_latency.png" alt="Historical Metrics Latency" video=false >}}
+{{< img src="metrics/custom_metrics/historical_metrics/hmi_latency.png" alt="Diagram showing how Historical Metrics can take longer to ingest depending on the metric timestamp">}}
 
-*Above mentioned ingestion latencies are not final and are subject to improvements with compliance to Datadog's committment to continuous growth.*
-
-## Historical Metrics Ingestion: Billing
+## Ingestion billing
 
 Historical Metrics will be billed under the Custom Metrics billing SKU. 
 
-{{< img src="metrics/hmi-assets/hmi_billing.png" alt="Historical Metrics Billing" video=false >}}
+{{< img src="metrics/custom_metrics/historical_metrics/hmi_billing.png" alt="Historical Metrics Billing" video=false >}}
 
-## Further reading
+## Further Reading
 
 {{< partial name="whats-next/whats-next.html" >}}
 
