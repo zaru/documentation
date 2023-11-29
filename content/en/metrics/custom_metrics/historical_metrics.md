@@ -15,13 +15,15 @@ further_reading:
   text: "Official and Community created API and DogStatsD client libraries"
 ---
 
-<div class="alert alert-info">BETA ACCESS</div>
+{{< callout url="#" btn_hidden="false" header="Join the Beta!">}}
+Historical Metrics Ingestion is in beta. Use this form to request access.
+{{< /callout >}}
 
 ## Overview
 
 **What is Historical Metric Ingestion?** If you emit metric points with timestamps that are older than an hour relative to the time of submission, Datadog will classify these points as Historical Metrics. 
 
-{{< img src="metrics/hmi-assets/hmi_intro.png" alt="Historical Metrics" video=false >}}
+{{< img src="metrics/custom_metrics/historical_metrics/hmi_intro.png" alt="Diagram showing the ingestion flow for Historical Metrics" >}}
 
 For example, if you emit a metric point at 1:00 PM EST, and the timestamp on that point reads 10:00 AM EST, it will be classified as a *Historical Metric*, as it is delayed by 3 hours relative to the time of submission.
 
