@@ -107,7 +107,7 @@
         contents:
 
         - action: integrations
-          branch: master
+          branch: deforest/mongodb-atlas-blog-link
           globs:
           - "*/metadata.csv"
           - "*/manifest.json"
