@@ -2361,50 +2361,50 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xhmikosr/bin-wrapper@npm:^10.0.0":
-  version: 10.0.0
-  resolution: "@xhmikosr/bin-wrapper@npm:10.0.0"
+"@xhmikosr/bin-wrapper@npm:^11.0.2":
+  version: 11.0.2
+  resolution: "@xhmikosr/bin-wrapper@npm:11.0.2"
   dependencies:
     "@xhmikosr/bin-check": ^6.0.0
-    "@xhmikosr/downloader": ^12.0.0
-    bin-version-check: ^5.0.0
+    "@xhmikosr/downloader": ^13.0.1
+    bin-version-check: ^5.1.0
     os-filter-obj: ^2.0.0
-  checksum: ee9a661ce428c92b5ceedbd7980e79393c7a020808473189adb37d9b65f72eadb12d81fb8b55c248309964bedea26db822f502676d41150510f58ca2d8cbc2f4
+  checksum: 792b4fbdd5a50e4548f365fa9c7b9dc2c7f75976c42b3aab981a568fcb16f2a3f611d8098872cf15ea2280a51a51d83d606a93fdd6ab57f705501dea8c44027c
   languageName: node
   linkType: hard
 
-"@xhmikosr/decompress-tar@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "@xhmikosr/decompress-tar@npm:6.0.1"
+"@xhmikosr/decompress-tar@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@xhmikosr/decompress-tar@npm:7.0.0"
   dependencies:
     file-type: ^18.5.0
     is-stream: ^3.0.0
-    tar-stream: ^2.2.0
-  checksum: 048c497b7b450f3edfb7b58ab1e854a07220f304e6734620b4ba0d3d53cd3eb6447d2f62f1c9b00aa7dc4a0b2d68937fd99fef0078cb107a0cad8eb1960ea574
+    tar-stream: ^3.1.4
+  checksum: 85a0184d96670b06d0c7b7764a6687c8df780eff8e0c64196f82397a2820c58e2cceff495a650330ba273ee36455c34c8ba9ca3a7e9c9a431f3fdc795d7b413f
   languageName: node
   linkType: hard
 
-"@xhmikosr/decompress-tarbz2@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@xhmikosr/decompress-tarbz2@npm:6.0.0"
+"@xhmikosr/decompress-tarbz2@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@xhmikosr/decompress-tarbz2@npm:7.0.0"
   dependencies:
-    "@xhmikosr/decompress-tar": ^6.0.1
+    "@xhmikosr/decompress-tar": ^7.0.0
     file-type: ^18.5.0
     is-stream: ^3.0.0
     seek-bzip: ^1.0.6
     unbzip2-stream: ^1.4.3
-  checksum: 57db70fefdd1b96aed658746d0a341c30c9c41398d8f201a3d6ad42fac2a004f762989dd250fedb07f5d5a75ec5c3f44d574d5015ab239b80bc5c6e33d2b8bbb
+  checksum: c23a76a33dadde0e03ecfc3b82c7a4c716dd74c8f293ffcf1ca9b43c40a086ad277f3c3871078e1f50cf1aefc4f57da72c0cedb937496b9294cfd0db2563e331
   languageName: node
   linkType: hard
 
-"@xhmikosr/decompress-targz@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "@xhmikosr/decompress-targz@npm:6.0.0"
+"@xhmikosr/decompress-targz@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@xhmikosr/decompress-targz@npm:7.0.0"
   dependencies:
-    "@xhmikosr/decompress-tar": ^6.0.1
+    "@xhmikosr/decompress-tar": ^7.0.0
     file-type: ^18.5.0
     is-stream: ^3.0.0
-  checksum: 93d2ee05f2681023606c79edf515b42e859bf0ecd70f157495802af0901085292696e52c66e33cf6907bc29b8e38a2d9ec28214b05a0a6ac897dfdf05db8e645
+  checksum: d8db07659d84169b8b29802ff873075862e3fa0af5454a8b38ce45d538705150b99b1e03274b1905b80daff71e82aaea12b910efbc24771155fa16a3668c4ca4
   languageName: node
   linkType: hard
 
@@ -2419,27 +2419,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xhmikosr/decompress@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "@xhmikosr/decompress@npm:8.0.0"
+"@xhmikosr/decompress@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "@xhmikosr/decompress@npm:9.0.1"
   dependencies:
-    "@xhmikosr/decompress-tar": ^6.0.1
-    "@xhmikosr/decompress-tarbz2": ^6.0.0
-    "@xhmikosr/decompress-targz": ^6.0.0
+    "@xhmikosr/decompress-tar": ^7.0.0
+    "@xhmikosr/decompress-tarbz2": ^7.0.0
+    "@xhmikosr/decompress-targz": ^7.0.0
     "@xhmikosr/decompress-unzip": ^6.0.0
     graceful-fs: ^4.2.11
-    make-dir: ^3.1.0
+    make-dir: ^4.0.0
     strip-dirs: ^3.0.0
-  checksum: 1ed06063e4f17e0a54f980322e5ff2604779046ea20719028cceedc36d0598526a949ac9c7a8f92312be0f26ab677c94052b21374633f125e1a8c7433bb23150
+  checksum: 5cd98f0f73d5cffc45b53249b56aa034792de53e3335db1f33e0e8313fe83e0f0a125a5b7ac1ebe1888c5a9dbcf61de0b36cedd609007171f76de729779588a2
   languageName: node
   linkType: hard
 
-"@xhmikosr/downloader@npm:^12.0.0":
-  version: 12.0.0
-  resolution: "@xhmikosr/downloader@npm:12.0.0"
+"@xhmikosr/downloader@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "@xhmikosr/downloader@npm:13.0.1"
   dependencies:
     "@xhmikosr/archive-type": ^6.0.1
-    "@xhmikosr/decompress": ^8.0.0
+    "@xhmikosr/decompress": ^9.0.1
     content-disposition: ^0.5.4
     ext-name: ^5.0.0
     file-type: ^18.5.0
@@ -2448,7 +2448,7 @@ __metadata:
     got: ^12.6.1
     merge-options: ^3.0.4
     p-event: ^5.0.1
-  checksum: 7c50bedb35833c858d05a36a0ab78996e77315acf4329d683111bf5091eeba4ce8f1040db84f9285a011327cb4aedbb6800908320290c9f123a1b977f24cbfa4
+  checksum: b03d310543278a4c0831f3c9151995a3dd62cf32b314767bc3346a860dfd5ffcd32d8f403f75b8453d25afdde5936f14606f6030c2d4182967394e32c808a7ca
   languageName: node
   linkType: hard
 
@@ -3034,6 +3034,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"b4a@npm:^1.6.4":
+  version: 1.6.4
+  resolution: "b4a@npm:1.6.4"
+  checksum: 81b086f9af1f8845fbef4476307236bda3d660c158c201db976f19cdce05f41f93110ab6b12fd7a2696602a490cc43d5410ee36a56d6eef93afb0d6ca69ac3b2
+  languageName: node
+  linkType: hard
+
 "babel-jest@npm:^25.5.1":
   version: 25.5.1
   resolution: "babel-jest@npm:25.5.1"
@@ -3206,14 +3213,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bin-version-check@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "bin-version-check@npm:5.0.0"
+"bin-version-check@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "bin-version-check@npm:5.1.0"
   dependencies:
     bin-version: ^6.0.0
-    semver: ^7.3.5
-    semver-truncate: ^2.0.0
-  checksum: 1d3dc92847f8ecd5e07109f5f44727f0cb3b17c00be5ae2a2e105b86bf161bc4e5c10ee2e2c21d5d28e6382994d8416b5e06048191a485be909a1e49a959c3c3
+    semver: ^7.5.3
+    semver-truncate: ^3.0.0
+  checksum: d99679cfe0964703045fe0145a98f117888942b621dfe2c2377305ee9a9d735374d8e3ecb3b476507b284af2567699f24f7ecb2feb1f27ad6086ad60b3198893
   languageName: node
   linkType: hard
 
@@ -3234,7 +3241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bl@npm:^4.0.3, bl@npm:^4.1.0":
+"bl@npm:^4.1.0":
   version: 4.1.0
   resolution: "bl@npm:4.1.0"
   dependencies:
@@ -4327,7 +4334,7 @@ __metadata:
     eslint-plugin-react-hooks: ^2.5.0
     eslint-plugin-standard: ^4.0.0
     fancy-log: ^1.3.3
-    hugo-bin: 0.108.0
+    hugo-bin: 0.113.0
     instantsearch.js: ^4.53.0
     jest: ^25.3.0
     jquery: 3.5.1
@@ -4518,7 +4525,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"end-of-stream@npm:^1.1.0, end-of-stream@npm:^1.4.1":
+"end-of-stream@npm:^1.1.0":
   version: 1.4.4
   resolution: "end-of-stream@npm:1.4.4"
   dependencies:
@@ -5203,6 +5210,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-fifo@npm:^1.1.0, fast-fifo@npm:^1.2.0":
+  version: 1.3.2
+  resolution: "fast-fifo@npm:1.3.2"
+  checksum: 6bfcba3e4df5af7be3332703b69a7898a8ed7020837ec4395bb341bd96cc3a6d86c3f6071dd98da289618cf2234c70d84b2a6f09a33dd6f988b1ff60d8e54275
+  languageName: node
+  linkType: hard
+
 "fast-json-stable-stringify@npm:^2.0.0":
   version: 2.1.0
   resolution: "fast-json-stable-stringify@npm:2.1.0"
@@ -5441,13 +5455,6 @@ __metadata:
   dependencies:
     map-cache: ^0.2.2
   checksum: 1cbbd0b0116b67d5790175de0038a11df23c1cd2e8dcdbade58ebba5594c2d641dade6b4f126d82a7b4a6ffc2ea12e3d387dbb64ea2ae97cf02847d436f60fdc
-  languageName: node
-  linkType: hard
-
-"fs-constants@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "fs-constants@npm:1.0.0"
-  checksum: 18f5b718371816155849475ac36c7d0b24d39a11d91348cfcb308b4494824413e03572c403c86d3a260e049465518c4f0d5bd00f0371cdfcad6d4f30a85b350d
   languageName: node
   linkType: hard
 
@@ -6013,15 +6020,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hugo-bin@npm:0.108.0":
-  version: 0.108.0
-  resolution: "hugo-bin@npm:0.108.0"
+"hugo-bin@npm:0.113.0":
+  version: 0.113.0
+  resolution: "hugo-bin@npm:0.113.0"
   dependencies:
-    "@xhmikosr/bin-wrapper": ^10.0.0
+    "@xhmikosr/bin-wrapper": ^11.0.2
     pkg-conf: ^4.0.0
   bin:
     hugo: bin/cli.js
-  checksum: 84fcfdd332918dbb9e4789ec5b24da1274fef4dfc841161c303840d625e2cdc375ca0af56e0a5f249c7fd5bdf2cb3d014c5fe909a2963129cffe2cd3d22945b7
+  checksum: a5416bd94a93e1a06b5d42c0f389317cbe1758d4db625d87c2007824d221814353579359f28d83795c2022059884f4e73b030c73e654cad6f76f2c856b7efa91
   languageName: node
   linkType: hard
 
@@ -7756,12 +7763,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-dir@npm:^3.0.0, make-dir@npm:^3.1.0":
+"make-dir@npm:^3.0.0":
   version: 3.1.0
   resolution: "make-dir@npm:3.1.0"
   dependencies:
     semver: ^6.0.0
   checksum: 484200020ab5a1fdf12f393fe5f385fc8e4378824c940fba1729dcd198ae4ff24867bc7a5646331e50cead8abff5d9270c456314386e629acec6dff4b8016b78
+  languageName: node
+  linkType: hard
+
+"make-dir@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "make-dir@npm:4.0.0"
+  dependencies:
+    semver: ^7.5.3
+  checksum: bf0731a2dd3aab4db6f3de1585cea0b746bb73eb5a02e3d8d72757e376e64e6ada190b1eddcde5b2f24a81b688a9897efd5018737d05e02e2a671dda9cff8a8a
   languageName: node
   linkType: hard
 
@@ -9494,6 +9510,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"queue-tick@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "queue-tick@npm:1.0.1"
+  checksum: 57c3292814b297f87f792fbeb99ce982813e4e54d7a8bdff65cf53d5c084113913289d4a48ec8bbc964927a74b847554f9f4579df43c969a6c8e0f026457ad01
+  languageName: node
+  linkType: hard
+
 "quick-lru@npm:^5.1.1":
   version: 5.1.1
   resolution: "quick-lru@npm:5.1.1"
@@ -9608,17 +9631,6 @@ __metadata:
     isarray: 0.0.1
     string_decoder: ~0.10.x
   checksum: 17dfeae3e909945a4a1abc5613ea92d03269ef54c49288599507fc98ff4615988a1c39a999dcf9aacba70233d9b7040bc11a5f2bfc947e262dedcc0a8b32b5a0
-  languageName: node
-  linkType: hard
-
-"readable-stream@npm:^3.1.1":
-  version: 3.6.2
-  resolution: "readable-stream@npm:3.6.2"
-  dependencies:
-    inherits: ^2.0.3
-    string_decoder: ^1.1.1
-    util-deprecate: ^1.0.1
-  checksum: bdcbe6c22e846b6af075e32cf8f4751c2576238c5043169a1c221c92ee2878458a816a4ea33f4c67623c0b6827c8a400409bfb3cf0bf3381392d0b1dfb52ac8d
   languageName: node
   linkType: hard
 
@@ -10172,12 +10184,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver-truncate@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "semver-truncate@npm:2.0.0"
+"semver-truncate@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "semver-truncate@npm:3.0.0"
   dependencies:
-    semver: ^6.0.0
-  checksum: 713c2bd49add098c3fd6271091e7c8c13908ab3f052d58a19b68920da9f101d34eb6a0c60ef4bd5fa3c345f001e0df37bb831602082441bb35ba857cac42e0f4
+    semver: ^7.3.5
+  checksum: d8c23812218ff147f512ac4830e86860a377dba8a9733ae97d816102aca33236fa1c44c06544727153fffb93d15d0e45c49b2c40a7964aa3671769e9aed2f3f9
   languageName: node
   linkType: hard
 
@@ -10216,6 +10228,17 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 2fa3e877568cd6ce769c75c211beaed1f9fce80b28338cadd9d0b6c40f2e2862bafd62c19a6cff42f3d54292b7c623277bcab8816a2b5521cf15210d43e75232
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.5.3":
+  version: 7.5.4
+  resolution: "semver@npm:7.5.4"
+  dependencies:
+    lru-cache: ^6.0.0
+  bin:
+    semver: bin/semver.js
+  checksum: 12d8ad952fa353b0995bf180cdac205a4068b759a140e5d3c608317098b3575ac2f1e09182206bf2eb26120e1c0ed8fb92c48c592f6099680de56bb071423ca3
   languageName: node
   linkType: hard
 
@@ -10676,6 +10699,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"streamx@npm:^2.15.0":
+  version: 2.15.6
+  resolution: "streamx@npm:2.15.6"
+  dependencies:
+    fast-fifo: ^1.1.0
+    queue-tick: ^1.0.1
+  checksum: 37a245f5cee4c33fcb8b018ccb935bad6eab423f05b0d14d018e63dbd2670bb109a69442e961a195b750c2c774f613c19476d11bd727d645eedb655d2dba234b
+  languageName: node
+  linkType: hard
+
 "string-length@npm:^1.0.0":
   version: 1.0.1
   resolution: "string-length@npm:1.0.1"
@@ -10973,16 +11006,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar-stream@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "tar-stream@npm:2.2.0"
+"tar-stream@npm:^3.1.4":
+  version: 3.1.6
+  resolution: "tar-stream@npm:3.1.6"
   dependencies:
-    bl: ^4.0.3
-    end-of-stream: ^1.4.1
-    fs-constants: ^1.0.0
-    inherits: ^2.0.3
-    readable-stream: ^3.1.1
-  checksum: 699831a8b97666ef50021c767f84924cfee21c142c2eb0e79c63254e140e6408d6d55a065a2992548e72b06de39237ef2b802b99e3ece93ca3904a37622a66f3
+    b4a: ^1.6.4
+    fast-fifo: ^1.2.0
+    streamx: ^2.15.0
+  checksum: f3627f918581976e954ff03cb8d370551053796b82564f8c7ca8fac84c48e4d042026d0854fc222171a34ff9c682b72fae91be9c9b0a112d4c54f9e4f443e9c5
   languageName: node
   linkType: hard
 

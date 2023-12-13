@@ -3,11 +3,6 @@ buildfuture: true
 builddrafts: true
 enableGitInfo: true
 
-disableLanguages:
-  - fr
-  - ja
-  - ko
-
 deployment:
     order:
       - ".woff2$"
