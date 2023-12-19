@@ -83,7 +83,7 @@
         contents:
 
         - action: integrations
-          branch: prod
+          branch: docs6833/update-dyn-integration-doc
           globs:
           - integration/*/*_metadata.csv
           - integration/*/manifest.json
