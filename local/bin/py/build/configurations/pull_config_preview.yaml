@@ -95,7 +95,7 @@
         contents:
 
         - action: integrations
-          branch: master
+          branch: docs7017/add-site-info
           globs:
           - "*/metadata.csv"
           - "*/manifest.json"
