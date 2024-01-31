@@ -3501,11 +3501,11 @@ main:
     parent: csm_setup
     identifier: csm_setup_workload_security
     weight: 10010
-  - name: Configuration
-    parent: csm
-    identifier: csm_indepth_guides_2
-    url: security/cloud_security_management/configuration
-    weight: 4
+#  - name: Configuration
+#    parent: csm
+#    identifier: csm_indepth_guides_2
+#    url: security/cloud_security_management/configuration
+#    weight: 4
   - name: Detection Rules
     parent: csm
     identifier: csm_indepth_guides
