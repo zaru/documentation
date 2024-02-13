@@ -21473,6 +21473,10 @@ components:
       required:
       - type
       type: object
+    UserTeamIncluded:
+      description: Included resources related to the team membership
+      oneOf:
+      - $ref: '#/components/schemas/User'
     UserTeamPermission:
       description: A user's permissions for a given team
       properties:
@@ -21527,6 +21531,11 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/UserTeam'
+        included:
+          description: Resources related to the team memberships
+          items:
+            $ref: '#/components/schemas/UserTeamIncluded'
+          type: array
       type: object
     UserTeamRole:
       description: The user's role within the team
